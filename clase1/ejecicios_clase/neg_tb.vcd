@@ -1,0 +1,37 @@
+$date
+  Sun Mar 20 13:12:14 2022
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module std_logic_1164 $end
+$upscope $end
+$scope module neg_tb $end
+$var reg 1 ! a_tb $end
+$var reg 1 " b_tb $end
+$scope module dut $end
+$var reg 1 # a_i $end
+$var reg 1 $ b_o $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+1"
+0#
+1$
+#150000000
+1!
+0"
+1#
+0$
+#400000000
+0!
+1"
+0#
+1$
