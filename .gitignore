@@ -2,6 +2,9 @@
 *.cf
 *.vcd
 
+# Folders
+/ZedBoard_files
+
 # Prerequisites
 *.d
 
