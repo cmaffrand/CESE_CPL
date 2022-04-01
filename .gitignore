@@ -3,7 +3,7 @@
 *.vcd
 
 # Folders
-/ZedBoard_files
+ZedBoard_files/
 
 # Prerequisites
 *.d
