@@ -1,3 +1,32 @@
+----------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Maffrand, Carlos
+-- 
+-- Create Date: 31.03.2022
+-- Last Modification Date:
+-- Design Name: 
+-- Module Name: cipherreg - behavioral
+-- File: cipherreg.vhd
+-- Project Name: AES
+-- Target Devices: ZedBoard
+-- Tool Versions: 
+-- Description: 
+--
+-- Registro intermedio para la implementacion del algoritmo de Rijndael
+-- 
+-- Dependencies: 
+-- 
+-- Additional Comments:
+-- Importante:
+-- 
+----------------------------------------------------------------------------
+-- Modification History:
+----------------------------------------------------------------------------
+-- Date   		By	    Version Change Description
+----------------------------------------------------------------------------
+-- 31/03/22  	CJM     0.10	Original
+----------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

@@ -5,7 +5,7 @@
 -- Create Date: 30.03.2022
 -- Last Modification Date:
 -- Design Name: 
--- Module Name: bytesub - luts
+-- Module Name: bytesub - luts/lutsinv
 -- File: bytesub.vhd
 -- Project Name: AES
 -- Target Devices:
@@ -42,7 +42,7 @@ architecture luts of bytesub is
 
 begin
   gen : for i in 1 to N/8 generate
-    sublut_inst : entity work.sublut
+    sublut_inst : entity work.sublut(lut)
       port map(
         byte_i => data_i(i * 8 - 1 downto (i - 1) * 8),
         byte_o => data_o(i * 8 - 1 downto (i - 1) * 8)
@@ -50,3 +50,16 @@ begin
   end generate gen;
 
 end architecture luts;
+
+architecture lutsinv of bytesub is
+
+begin
+  gen : for i in 1 to N/8 generate
+    sublutinv_inst : entity work.sublut(lutinv)
+      port map(
+        byte_i => data_i(i * 8 - 1 downto (i - 1) * 8),
+        byte_o => data_o(i * 8 - 1 downto (i - 1) * 8)
+      );
+  end generate gen;
+
+end architecture lutsinv;

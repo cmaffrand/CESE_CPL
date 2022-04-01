@@ -5,7 +5,7 @@
 -- Create Date: 30.03.2022
 -- Last Modification Date:
 -- Design Name: 
--- Module Name: mixcolumns128 - luts
+-- Module Name: mixcolumns128 - luts/lutsinv
 -- File: mixcolumns128.vhd
 -- Project Name: AES
 -- Target Devices:
@@ -46,7 +46,7 @@ architecture luts of mixcolumns128 is
 begin
 
   gen : for i in 1 to N/32 generate
-    mixcolumns32_inst : entity work.mixcolumns32
+    mixcolumns32_inst : entity work.mixcolumns32(luts)
       port map(
         data_i => data_i(i * 32 - 1 downto (i - 1) * 32),
         data_o => data_o(i * 32 - 1 downto (i - 1) * 32)
@@ -54,3 +54,17 @@ begin
   end generate gen;
 
 end architecture luts;
+
+architecture lutsinv of mixcolumns128 is
+
+  begin
+  
+    gen : for i in 1 to N/32 generate
+      mixcolumns32_inst : entity work.mixcolumns32(lutsinv)
+        port map(
+          data_i => data_i(i * 32 - 1 downto (i - 1) * 32),
+          data_o => data_o(i * 32 - 1 downto (i - 1) * 32)
+        );
+    end generate gen;
+  
+  end architecture lutsinv;

@@ -1,3 +1,32 @@
+----------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Maffrand, Carlos
+-- 
+-- Create Date: 31.03.2022
+-- Last Modification Date:
+-- Design Name: 
+-- Module Name: aesencript - struc
+-- File: aesencript.vhd
+-- Project Name: AES
+-- Target Devices: ZedBoard
+-- Tool Versions: 
+-- Description: 
+--
+-- Estructura top de encriptacion con el algoritmo de Rijndael
+-- 
+-- Dependencies: 
+-- 
+-- Additional Comments:
+-- Importante:
+-- 
+----------------------------------------------------------------------------
+-- Modification History:
+----------------------------------------------------------------------------
+-- Date   		By	    Version Change Description
+----------------------------------------------------------------------------
+-- 31/03/22  	CJM     0.10	Original
+----------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

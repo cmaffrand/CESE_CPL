@@ -49,13 +49,13 @@ architecture struc of lastround is
 
 begin
 
-  bytesub_inst : entity work.bytesub
+  bytesub_inst : entity work.bytesub(luts)
     port map(
       data_i => data_i,
       data_o => substitutedbytes_s
     );
 
-  shiftrows_inst : entity work.shiftrows
+  shiftrows_inst : entity work.shiftrows(wires)
     port map(
       data_i => substitutedbytes_s,
       data_o => shiftedrows_s

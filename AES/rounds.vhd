@@ -50,7 +50,7 @@ architecture struc of rounds is
 
 begin
 
-  bytesub_inst : entity work.bytesub
+  bytesub_inst : entity work.bytesub(luts)
     port map(
       data_i => data_i,
       data_o => substitutedbytes_s

@@ -62,7 +62,7 @@ begin
   shiftedword_s <= key_i(23 downto 0) & key_i(31 downto 24);
 
   -- Substitucion de bytes en word    
-  sublut_inst : entity work.bytesub
+  sublut_inst : entity work.bytesub(luts)
     generic map(N => 32)
     port map(
       data_i => shiftedword_s,
