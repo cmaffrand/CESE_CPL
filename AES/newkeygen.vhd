@@ -85,9 +85,5 @@ begin
 
   -- Asignacion de salida
   key_o <= word0 & word1 & word2 & word3;
-  --key_o <=  word0(7 downto 0) & word0(15 downto 8) & word0(23 downto 16) & word0(31 downto 24)
-  --        & word1(7 downto 0) & word1(15 downto 8) & word1(23 downto 16) & word1(31 downto 24)
-  --        & word2(7 downto 0) & word2(15 downto 8) & word2(23 downto 16) & word2(31 downto 24)
-  --        & word3(7 downto 0) & word3(15 downto 8) & word3(23 downto 16) & word3(31 downto 24);
 
 end architecture rtl;
