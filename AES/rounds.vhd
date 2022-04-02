@@ -5,7 +5,7 @@
 -- Create Date: 30.03.2022
 -- Last Modification Date:
 -- Design Name: 
--- Module Name: rounds - struc
+-- Module Name: rounds - struc / strucinv
 -- File: rounds.vhd
 -- Project Name: AES
 -- Target Devices:
@@ -53,26 +53,46 @@ begin
   bytesub_inst : entity work.bytesub(luts)
     port map(
       data_i => data_i,
-      data_o => substitutedbytes_s
-    );
-
-  shiftrows_inst : entity work.shiftrows
+      data_o => substitutedbytes_s);
+  shiftrows_inst : entity work.shiftrows(wires)
     port map(
       data_i => substitutedbytes_s,
-      data_o => shiftedrows_s
-    );
-
-  mixcolumns_inst : entity work.mixcolumns128
+      data_o => shiftedrows_s);
+  mixcolumns_inst : entity work.mixcolumns128(luts)
     port map(
       data_i => shiftedrows_s,
-      data_o => mixedcolumns_s
-    );
-
+      data_o => mixedcolumns_s);
   addroundkey_inst : entity work.addroundkey
     port map(
       a_i => mixedcolumns_s,
       b_i => key_i,
-      o_o => data_o
-    );
-    
+      o_o => data_o);
+
 end architecture struc;
+
+architecture strucinv of rounds is
+
+  signal shiftedrows_s : std_logic_vector(N - 1 downto 0);
+  signal substitutedbytes_s : std_logic_vector(N - 1 downto 0);
+  signal roundkeyadded_s : std_logic_vector(N - 1 downto 0);
+
+begin
+  shiftrowsinv_inst : entity work.shiftrows(wiresinv)
+    port map(
+      data_i => data_i,
+      data_o => shiftedrows_s);
+  bytesubinv_inst : entity work.bytesub(lutsinv)
+    port map(
+      data_i => shiftedrows_s,
+      data_o => substitutedbytes_s);
+  addroundkey_inst : entity work.addroundkey
+    port map(
+      a_i => substitutedbytes_s,
+      b_i => key_i,
+      o_o => roundkeyadded_s);
+  mixcolumnsinv_inst : entity work.mixcolumns128(lutsinv)
+    port map(
+      data_i => roundkeyadded_s,
+      data_o => data_o);
+
+end architecture strucinv;
