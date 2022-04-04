@@ -145,7 +145,7 @@ begin
       q_o => generatedkeys_s
     );
 
-  -- Registro de entrada a generador de Keys
+  -- Generador de Keys
   newkeygen_inst : entity work.newkeygen
     port map(
       key_i => generatedkeys_s,
