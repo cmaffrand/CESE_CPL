@@ -41,19 +41,19 @@ entity cipherreg is
   );
 end cipherreg;
 
-architecture behavioral of cipherreg is
+architecture rtl of cipherreg is
 
 begin
-    
-    process (clk_i, arst_i)
-    begin
-        if arst_i = '1' then
-            q_o <= (others => '0'); 
-        elsif rising_edge(clk_i) then
-            if ena_i = '1' then
-                q_o <= d_i;
-            end if;           
-        end if;
-    end process;
 
-end architecture behavioral;
+  process (clk_i, arst_i)
+  begin
+    if arst_i = '1' then
+      q_o <= (others => '0');
+    elsif rising_edge(clk_i) then
+      if ena_i = '1' then
+        q_o <= d_i;
+      end if;
+    end if;
+  end process;
+
+end architecture rtl;

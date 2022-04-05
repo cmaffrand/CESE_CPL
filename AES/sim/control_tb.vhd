@@ -22,7 +22,7 @@ architecture sim of control_tb is
   signal ready_i : std_logic := '0';
 
   -- Output Signals 
-  signal run_o : std_logic; 
+  signal prelast_o : std_logic; 
   signal first_o : std_logic; 
   signal last_o : std_logic; 
   signal valid_o : std_logic; 
@@ -41,7 +41,7 @@ begin
         clk_i => clk,
         arst_i => rst,
         ready_i => ready_i,
-        run_o => run_o,
+        prelast_o => prelast_o,
         first_o  => first_o,
         last_o  => last_o,
         valid_o  => valid_o,

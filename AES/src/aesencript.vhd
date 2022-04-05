@@ -64,7 +64,7 @@ architecture struc of aesencript is
 
 begin
 
-  addroundkey_init_inst : entity work.addroundkey
+  addroundkey_init_inst : entity work.addroundkey(luts)
     port map(
       a_i => data_i,
       b_i => key_i,
@@ -72,7 +72,7 @@ begin
     );
 
   -- Mux para seleccionar entre dato de entrada o resultado de rondas
-  mux_init_inst : entity work.mux128
+  mux_init_inst : entity work.mux128(rtl)
     port map(
       sel_i => first_s,
       a_i => roundfeedback_s,
@@ -81,7 +81,7 @@ begin
     );
 
   -- Registro de entrada 
-  reg_init_inst : entity work.cipherreg
+  reg_init_inst : entity work.cipherreg(rtl)
     port map(
       clk_i => clk_i,
       arst_i => arst_i,
@@ -91,7 +91,7 @@ begin
     );
 
   -- Rondas 1 a 9
-  rounds_inst : entity work.rounds
+  rounds_inst : entity work.rounds(struc)
     port map(
       data_i => registeredround_s,
       key_i => keyfeedback_s,
@@ -99,7 +99,7 @@ begin
     );
 
     -- Registro ultima ronda 
-  reg_last_inst : entity work.cipherreg
+  reg_last_inst : entity work.cipherreg(rtl)
   port map(
     clk_i => clk_i,
     arst_i => arst_i,
@@ -109,7 +109,7 @@ begin
   );
 
   -- Ultima Ronda
-  lastrounds_inst : entity work.lastround
+  lastrounds_inst : entity work.lastround(struc)
     port map(
       data_i => lastroundinput_s,
       key_i => keyfeedback_s,
@@ -117,7 +117,7 @@ begin
     );
 
   -- Registro de salida
-  reg_out_inst : entity work.cipherreg
+  reg_out_inst : entity work.cipherreg(rtl)
     port map(
       clk_i => clk_i,
       arst_i => arst_i,
@@ -127,7 +127,7 @@ begin
     );
 
   -- Mux para seleccionar entre dato de entrada o resultado de rondas
-  mux_key_inst : entity work.mux128
+  mux_key_inst : entity work.mux128(rtl)
     port map(
       sel_i => first_s,
       a_i => keyfeedback_s,
@@ -136,7 +136,7 @@ begin
     );
 
   -- Registro de entrada a generador de Keys
-  reg_keys_init_inst : entity work.cipherreg
+  reg_keys_init_inst : entity work.cipherreg(rtl)
     port map(
       clk_i => clk_i,
       arst_i => arst_i,
@@ -146,7 +146,7 @@ begin
     );
 
   -- Generador de Keys
-  newkeygen_inst : entity work.newkeygen
+  newkeygen_inst : entity work.newkeygen(rtl)
     port map(
       key_i => generatedkeys_s,
       stage_i => keystage_s,
@@ -154,7 +154,7 @@ begin
     );
 
   -- Modulo de control
-  control_inst : entity work.control
+  control_inst : entity work.control(rtl)
   port map (
     clk_i => clk_i,
     arst_i => arst_i,
