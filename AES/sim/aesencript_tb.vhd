@@ -34,29 +34,29 @@ architecture sim of aesencript_tb is
   signal data_o : std_logic_vector(N - 1 downto 0);
 
   -- Auxliary Signals
-  signal test_inputs : data_matrix := (x"6BC1BEE22E409F96E93D7E117393172A",
+  signal test_inputs : data_matrix := (x"6a84867cd77e12ad07ea1be895c53fa3",
   x"6bc1bee22e409f96e93d7e117393172a",
   x"ae2d8a571e03ac9c9eb76fac45af8e51",
   x"30c81c46a35ce411e5fbc1191a0a52ef",
   x"f69f2445df4f9b17ad2b417be66c3710",
   x"00112233445566778899aabbccddeeff",
-  x"6a84867cd77e12ad07ea1be895c53fa3");
+  x"00000000000000000000000000000000");
 
-  signal test_keys : data_matrix := (x"2B7E151628AED2A6ABF7158809CF4F3C",
+  signal test_keys : data_matrix := (x"00000000000000000000000000000000",
   x"2b7e151628aed2a6abf7158809cf4f3c",
   x"2b7e151628aed2a6abf7158809cf4f3c",
   x"2b7e151628aed2a6abf7158809cf4f3c",
   x"2b7e151628aed2a6abf7158809cf4f3c",
   x"000102030405060708090a0b0c0d0e0f",
-  x"00000000000000000000000000000000");
+  x"febd9a24d8b65c1c787d50a4ed3619a9");
 
-  signal test_outputs : data_matrix := (x"3AD77BB40D7A3660A89ECAF32466EF97",
+  signal test_outputs : data_matrix := (x"732281c0a0aab8f7a54a0c67a0c45ecf",
   x"3ad77bb40d7a3660a89ecaf32466ef97",
   x"f5d3d58503b9699de785895a96fdbaaf",
   x"43b1cd7f598ece23881b00e3ed030688",
   x"7b0c785e27e8ad3f8223207104725dd4",
   x"69c4e0d86a7b0430d8cdb78070b4c55a",
-  x"732281c0a0aab8f7a54a0c67a0c45ecf");
+  x"f4a70d8af877f9b02b4c40df57d45b17");
 
   signal i : integer := 0;
 

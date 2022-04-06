@@ -75,7 +75,7 @@ begin
       );
 
     -- Registros de keys generadas
-    reg_keys_inst : entity work.cipherreg
+    reg_keys_inst : entity work.cipherreg(rtl)
       generic map(N => N)
       port map(
         clk_i => clk_i,
