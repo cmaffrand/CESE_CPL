@@ -53,6 +53,7 @@ architecture struc of aesencript is
   signal lastroundinput_s : std_logic_vector(N - 1 downto 0);
   signal ciphertext_s : std_logic_vector(N - 1 downto 0);
 
+  --signal busy_s : std_logic;
   signal first_s : std_logic;
   signal last_s : std_logic;
   signal prelast_s : std_logic;
@@ -159,6 +160,7 @@ begin
     clk_i => clk_i,
     arst_i => arst_i,
     ready_i => ready_i,
+    busy_o => open,
     first_o => first_s,
     prelast_o => prelast_s,
     last_o => last_s,

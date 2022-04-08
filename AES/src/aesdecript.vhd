@@ -31,7 +31,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity aesdencript is
+entity aesdecript is
   generic (N : positive := 128);
   port (
     clk_i : in std_logic;
@@ -42,9 +42,9 @@ entity aesdencript is
     data_o : out std_logic_vector(N - 1 downto 0);
     valid_o : out std_logic
   );
-end aesdencript;
+end aesdecript;
 
-architecture struc of aesdencript is
+architecture struc of aesdecript is
 
   signal inputdataadded_s : std_logic_vector(N - 1 downto 0);
   signal roundfeedback_s : std_logic_vector(N - 1 downto 0);
@@ -53,13 +53,12 @@ architecture struc of aesdencript is
   signal lastroundinput_s : std_logic_vector(N - 1 downto 0);
   signal ciphertext_s : std_logic_vector(N - 1 downto 0);
 
+  signal busy_s : std_logic;
   signal first_s : std_logic;
   signal last_s : std_logic;
   signal prelast_s : std_logic;
 
   signal generatedkeys_s : std_logic_vector(N - 1 downto 0);
-  signal keyfeedback_s : std_logic_vector(N - 1 downto 0);
-  signal orgkey_s : std_logic_vector(N - 1 downto 0);
   signal keystage_s : std_logic_vector(3 downto 0);
 
 begin
@@ -85,7 +84,7 @@ begin
     port map(
       clk_i => clk_i,
       arst_i => arst_i,
-      ena_i => '1',
+      ena_i => busy_s,
       d_i => inputround_s,
       q_o => registeredround_s
     );
@@ -126,33 +125,24 @@ begin
       q_o => data_o
     );
 
-  -- Registro de Key original
-  reg_keys_init_inst : entity work.cipherreg(rtl)
-    port map(
-      clk_i => clk_i,
-      arst_i => arst_i,
-      ena_i => first_s,
-      d_i => key_i,
-      q_o => orgkey_s
-    );
-
   -- Registro de entrada a generador de Keys
-  unofoldedkeygen_inst : entity work.unofoldedkeygen(struc)
+  unofoldedkeygen_inst : entity work.unfoldedkeygen(struc)
     port map(
       clk_i => clk_i,
       arst_i => arst_i,
       ena_i => first_s,
-      key_i => orgkey_s,
+      key_i => key_i,
       stage_i => keystage_s,
       key_o => generatedkeys_s
     );
 
   -- Modulo de control
-  control_inst : entity work.control(rtl)
+  control_inst : entity work.control(rtlinv)
   port map (
     clk_i => clk_i,
     arst_i => arst_i,
     ready_i => ready_i,
+    busy_o => busy_s,
     first_o => first_s,
     prelast_o => prelast_s,
     last_o => last_s,

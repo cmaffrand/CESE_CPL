@@ -1,0 +1,5 @@
+ghdl -a ../src/addroundkey.vhd ../src/mux128.vhd ../src/cipherreg.vhd ../src/sublut.vhd ../src/bytesub.vhd ../src/control.vhd ../src/galoismul2.vhd ../src/galoismul3.vhd   ../src/galoismul9.vhd ../src/galoismul11.vhd  ../src/galoismul13.vhd  ../src/galoismul14.vhd ../src/shiftrows.vhd ../src/lastround.vhd ../src/mixcolumns32.vhd ../src/mixcolumns128.vhd ../src/roundconst.vhd ../src/newkeygen.vhd ../src/rounds.vhd ../src/unfoldedkeygen.vhd ../src/aesdecript.vhd aesdecript_tb.vhd
+ghdl -s ../src/addroundkey.vhd ../src/mux128.vhd ../src/cipherreg.vhd ../src/sublut.vhd ../src/bytesub.vhd ../src/control.vhd ../src/galoismul2.vhd ../src/galoismul3.vhd   ../src/galoismul9.vhd ../src/galoismul11.vhd  ../src/galoismul13.vhd  ../src/galoismul14.vhd ../src/shiftrows.vhd ../src/lastround.vhd ../src/mixcolumns32.vhd ../src/mixcolumns128.vhd ../src/roundconst.vhd ../src/newkeygen.vhd ../src/rounds.vhd ../src/unfoldedkeygen.vhd ../src/aesdecript.vhd aesdecript_tb.vhd
+ghdl -e aesdecript_tb
+ghdl -r aesdecript_tb --vcd=aesdecript_tb.vcd --stop-time=1000ms
+gtkwave aesdecript_tb.vcd

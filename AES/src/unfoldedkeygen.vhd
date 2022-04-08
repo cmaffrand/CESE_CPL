@@ -39,7 +39,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity unofoldedkeygen is
+entity unfoldedkeygen is
   generic (
     N : positive := 128;
     I : positive := 10
@@ -52,9 +52,9 @@ entity unofoldedkeygen is
     stage_i : in std_logic_vector(3 downto 0);
     key_o : out std_logic_vector(N - 1 downto 0)
   );
-end unofoldedkeygen;
+end unfoldedkeygen;
 
-architecture struc of unofoldedkeygen is
+architecture struc of unfoldedkeygen is
 
   signal feedback_s : std_logic_vector((I + 1) * N - 1 downto 0);
   signal registeredkeys_s : std_logic_vector(I * N - 1 downto 0);
@@ -88,15 +88,15 @@ begin
   end generate key_expansion_gen;
 
   -- Asignacion de salida
-  key_o <= registeredkeys_s(N * 1 - 1 downto N * 0) when stage_i = x"1" else
-    registeredkeys_s(N * 2 - 1 downto N * 1) when stage_i = x"2" else
-    registeredkeys_s(N * 3 - 1 downto N * 2) when stage_i = x"3" else
-    registeredkeys_s(N * 4 - 1 downto N * 3) when stage_i = x"4" else
-    registeredkeys_s(N * 5 - 1 downto N * 4) when stage_i = x"5" else
-    registeredkeys_s(N * 6 - 1 downto N * 5) when stage_i = x"6" else
-    registeredkeys_s(N * 7 - 1 downto N * 6) when stage_i = x"7" else
-    registeredkeys_s(N * 8 - 1 downto N * 7) when stage_i = x"8" else
-    registeredkeys_s(N * 9 - 1 downto N * 8) when stage_i = x"9" else
-    registeredkeys_s(N * 10 - 1 downto N * 9);
+  key_o <= registeredkeys_s(N * 10 - 1 downto N * 9) when stage_i = x"1" else
+    registeredkeys_s(N * 9 - 1 downto N * 8) when stage_i = x"2" else
+    registeredkeys_s(N * 8 - 1 downto N * 7) when stage_i = x"3" else
+    registeredkeys_s(N * 7 - 1 downto N * 6) when stage_i = x"4" else
+    registeredkeys_s(N * 6 - 1 downto N * 5) when stage_i = x"5" else
+    registeredkeys_s(N * 5 - 1 downto N * 4) when stage_i = x"6" else
+    registeredkeys_s(N * 4 - 1 downto N * 3) when stage_i = x"7" else
+    registeredkeys_s(N * 3 - 1 downto N * 2) when stage_i = x"8" else
+    registeredkeys_s(N * 2 - 1 downto N * 1) when stage_i = x"9" else
+    registeredkeys_s(N * 1 - 1 downto N * 0);
 
 end architecture struc;
