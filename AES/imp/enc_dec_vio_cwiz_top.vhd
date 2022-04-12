@@ -5,8 +5,8 @@
 -- Create Date: 09.04.2022
 -- Last Modification Date:
 -- Design Name: 
--- Module Name: encdecvio - struc
--- File: enc_dec_vio_top.vhd
+-- Module Name: encdecviocwiz - struc
+-- File: enc_dec_vio_cwiz_top.vhd
 -- Project Name: AES
 -- Target Devices:
 -- Tool Versions: ZedBoard
@@ -32,13 +32,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity encdecvio is
+entity encdecviocwiz is
   port (
     clk_i : in std_logic
   );
-end encdecvio;
+end encdecviocwiz;
 
-architecture struc of encdecvio is
+architecture struc of encdecviocwiz is
 
   constant N : integer := 128;
 
@@ -72,16 +72,6 @@ architecture struc of encdecvio is
       probe_out2 : out std_logic_vector(0 downto 0);
       probe_out3 : out std_logic_vector(127 downto 0);
       probe_out4 : out std_logic_vector(127 downto 0)
-    );
-  end component;
-
-  -- ILA Component
-  component ila_0
-    port (
-      clk : in std_logic;
-      trig_in : in std_logic;
-      trig_in_ack : out std_logic;
-      probe0 : in std_logic_vector(127 downto 0)
     );
   end component;
 
@@ -126,15 +116,6 @@ begin
     probe_out2 => decready_s,
     probe_out3 => indata_s,
     probe_out4 => key_s
-  );
-
-  -- ILA
-  ila_inst : ila_0
-  port map(
-    clk => clk_i,
-    trig_in => encvalid_s(0),
-    trig_in_ack => open,
-    probe0 => encdata_s
   );
 
 end architecture;
