@@ -26,6 +26,7 @@
 -- Date   		By	    Version Change Description
 ----------------------------------------------------------------------------
 -- 09/04/22  	CJM     0.10	Original
+-- 12/04/22  	CJM     0.11	Adds Clocking Wizard and ILA
 ----------------------------------------------------------------------------
 
 library ieee;
@@ -43,7 +44,10 @@ architecture struc of encdecvio is
   constant N : integer := 128;
 
   -- General Signals
+  signal clkw_s : std_logic;
   signal rst_s : std_logic_vector(0 downto 0);
+  signal trigger_s : std_logic_vector(0 downto 0);
+  signal seltrig_s : std_logic_vector(0 downto 0);
 
   -- Encoder Signals
   signal encready_s : std_logic_vector(0 downto 0);
@@ -71,7 +75,8 @@ architecture struc of encdecvio is
       probe_out1 : out std_logic_vector(0 downto 0);
       probe_out2 : out std_logic_vector(0 downto 0);
       probe_out3 : out std_logic_vector(127 downto 0);
-      probe_out4 : out std_logic_vector(127 downto 0)
+      probe_out4 : out std_logic_vector(127 downto 0);
+      probe_out5 : out std_logic_vector(0 downto 0)
     );
   end component;
 
@@ -81,7 +86,18 @@ architecture struc of encdecvio is
       clk : in std_logic;
       trig_in : in std_logic;
       trig_in_ack : out std_logic;
-      probe0 : in std_logic_vector(127 downto 0)
+      probe0 : in std_logic_vector(127 downto 0);
+      probe1 : in std_logic_vector(127 downto 0)
+    );
+  end component;
+
+  -- Clocking Wizard
+  component clk_wiz_0
+    port (
+      clk_in1 : in std_logic;
+      reset : in std_logic;
+      clk_out1 : out std_logic;
+      locked : out std_logic
     );
   end component;
 
@@ -91,7 +107,7 @@ begin
   enc_inst : entity work.aesencript(struc)
     generic map(N => N)
     port map(
-      clk_i => clk_i,
+      clk_i => clkw_s,
       arst_i => rst_s(0),
       ready_i => encready_s(0),
       key_i => key_s,
@@ -104,7 +120,7 @@ begin
   dec_inst : entity work.aesdecript(struc)
     generic map(N => N)
     port map(
-      clk_i => clk_i,
+      clk_i => clkw_s,
       arst_i => rst_s(0),
       ready_i => decready_s(0),
       key_i => key_s,
@@ -116,7 +132,7 @@ begin
   -- VIO
   vio_inst : vio_1
   port map(
-    clk => clk_i,
+    clk => clkw_s,
     probe_in0 => encvalid_s,
     probe_in1 => decvalid_s,
     probe_in2 => encdata_s,
@@ -125,16 +141,29 @@ begin
     probe_out1 => encready_s,
     probe_out2 => decready_s,
     probe_out3 => indata_s,
-    probe_out4 => key_s
+    probe_out4 => key_s,
+    probe_out5 => seltrig_s
   );
+
+  trigger_s(0) <= encvalid_s(0) when (seltrig_s(0) = '0') else decvalid_s(0);
 
   -- ILA
   ila_inst : ila_0
   port map(
-    clk => clk_i,
-    trig_in => encvalid_s(0),
+    clk => clkw_s,
+    trig_in => trigger_s(0),
     trig_in_ack => open,
-    probe0 => encdata_s
+    probe0 => encdata_s,
+    probe1 => outdata_s
+  );
+
+  -- Clocking Wizard
+  clk_wiz_inst : clk_wiz_0
+  port map(
+    clk_in1 => clk_i,
+    reset => rst_s(0),
+    clk_out1 => clkw_s,
+    locked => open
   );
 
 end architecture;
