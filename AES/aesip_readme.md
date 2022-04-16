@@ -1,4 +1,4 @@
-# AES Encryption IP
+# AES IP
 
 This IP provides a VHDL development for an AES Encryptor/Decryptor.
 
@@ -137,6 +137,7 @@ Eng. Carlos Maffrand  [@cmaffrand](https://www.linkedin.com/in/carlos-maffrand-3
 - [x] AES Encrypter chypher
 - [x] AES Decrypter chypher
 - [x] FPGA Implementation
+- - [x] ZedBoard (ILA and VIO)
 - [ ] AES Key width
 - - [x] 128 Bits
 - - [ ] 192 Bits
@@ -150,4 +151,4 @@ Eng. Carlos Maffrand  [@cmaffrand](https://www.linkedin.com/in/carlos-maffrand-3
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details.
+This project is licensed under the MIT License - see the LICENSE.md file for details.
