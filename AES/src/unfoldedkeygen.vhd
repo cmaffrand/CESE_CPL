@@ -63,8 +63,8 @@ begin
 
   -- Key Expansion
   feedback_s (N - 1 downto 0) <= key_i;
-  key_expansion_gen : for j in 1 to I generate
 
+  key_expansion_gen : for j in 1 to I generate
     -- Instancias del bloque combinacional generador de round keys
     keygen_inst : entity work.newkeygen(rtl)
       generic map(N => N)
@@ -73,7 +73,6 @@ begin
         stage_i => std_logic_vector(to_unsigned(j, 4)),
         key_o => feedback_s(N * (j + 1) - 1 downto N * j)
       );
-
     -- Registros de keys generadas
     reg_keys_inst : entity work.cipherreg(rtl)
       generic map(N => N)
@@ -84,7 +83,6 @@ begin
         d_i => feedback_s(N * (j + 1) - 1 downto N * j),
         q_o => registeredkeys_s(N * j - 1 downto N * (j - 1))
       );
-
   end generate key_expansion_gen;
 
   -- Asignacion de salida

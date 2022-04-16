@@ -127,7 +127,7 @@ begin
       q_o => data_o
     );
 
-  -- Mux para seleccionar entre dato de entrada o resultado de rondas
+  -- Mux para seleccionar entre el key de entrada o el key generado
   mux_key_inst : entity work.mux128(rtl)
     port map(
       sel_i => first_s,
