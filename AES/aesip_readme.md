@@ -113,6 +113,12 @@ The IP was implemented on ZedBoard using:
 
 * [Vivado 2018.3](https://www.xilinx.com/support/installer/installer-info-2018-3.html)
 
+## Board Implementation
+
+### Board Implementation Architecture
+
+![alt text](https://github.com/cmaffrand/CESE_CPL/blob/main/AES/docs/img/imple_arch.png)
+
 ## Usage
 
 * Folder src contains AES VHDL code
