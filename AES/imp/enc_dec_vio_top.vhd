@@ -13,7 +13,8 @@
 -- Description: 
 --
 -- Implementacion de encriptador y decriptador de mensajes AES, para la 
--- placa ZedBoard. Utilizando el Virtual Input Output (VIO) del ZedBoard.
+-- placa ZedBoard. Utilizando el Virtual Input Output (VIO e ILA) de la
+-- ZedBoard.
 --
 -- Dependencies: 
 -- 
