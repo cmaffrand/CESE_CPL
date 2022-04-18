@@ -20,6 +20,7 @@ architecture sim of control_tb is
   signal clk : std_logic := '1';
   signal rst : std_logic := '1';
   signal ready_i : std_logic := '0';
+  signal keys_ready_i : std_logic := '1';
 
   -- Output Signals 
   signal prelast_o : std_logic; 
@@ -27,8 +28,6 @@ architecture sim of control_tb is
   signal last_o : std_logic; 
   signal valid_o : std_logic; 
   signal index_o : std_logic_vector(3 downto 0);
-
-  -- Auxliary Signals
 
 begin
 
@@ -41,6 +40,7 @@ begin
         clk_i => clk,
         arst_i => rst,
         ready_i => ready_i,
+        keys_ready_i => keys_ready_i,
         prelast_o => prelast_o,
         first_o  => first_o,
         last_o  => last_o,

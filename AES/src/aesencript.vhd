@@ -160,6 +160,7 @@ begin
     clk_i => clk_i,
     arst_i => arst_i,
     ready_i => ready_i,
+    keys_ready_i => '1',
     busy_o => open,
     first_o => first_s,
     prelast_o => prelast_s,

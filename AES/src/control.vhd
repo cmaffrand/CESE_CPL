@@ -36,6 +36,7 @@ entity control is
     clk_i : in std_logic;
     arst_i : in std_logic;
     ready_i : in std_logic;
+    keys_ready_i : in std_logic;
     busy_o : out std_logic;
     first_o : out std_logic;
     prelast_o : out std_logic;
@@ -140,7 +141,9 @@ begin
         index_o <= x"1";
         count := 1;
       elsif count = 1 then
-        count := count + 1;
+        if keys_ready_i = '1' then
+          count := count + 1;
+        end if; 
         busy_o <= '1';
         first_o <= '1';
         prelast_o <= '0';
