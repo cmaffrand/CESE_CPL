@@ -100,31 +100,29 @@ begin
   -- Contador de keys generadas y generador de salida keys_ready_i
   process (clk_i, arst_i)
     variable counter : integer := 0;
-    variable ready_a : std_logic;
   begin
     if arst_i = '1' then
-      ready_a := ready_i;
-      counter := 0;
+      counter := I + 4;
       keys_ready_i <= '0';
     elsif rising_edge(clk_i) then
       -- Detector de nuevo ready
-      if ready_a = '0' and ready_i = '1' then
-        counter := 0;
-        keys_ready_i <= '0';
-        -- Key Expansion
-        registeredkeys_s (N - 1 downto 0) <= key_i;
-      else
-        if counter <= I + 1 then
+      if ready_i = '1' then
+        if counter = I + 4 then
+          counter := 0;
+          keys_ready_i <= '0';
+          -- Key Expansion
+          registeredkeys_s (N - 1 downto 0) <= key_i;
+        elsif counter <= I + 1 then
           counter := counter + 1;
           keys_ready_i <= '0';
         elsif counter = I + 2 then
           counter := counter + 1;
           keys_ready_i <= '1';
         else
+          counter := counter + 1;
           keys_ready_i <= '0';
         end if;
       end if;
-      ready_a := ready_i;
     end if;
   end process;
 

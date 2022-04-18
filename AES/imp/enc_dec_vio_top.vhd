@@ -88,7 +88,9 @@ architecture struc of encdecvio is
       trig_in : in std_logic;
       trig_in_ack : out std_logic;
       probe0 : in std_logic_vector(127 downto 0);
-      probe1 : in std_logic_vector(127 downto 0)
+      probe1 : in std_logic_vector(127 downto 0);
+      probe2 : in std_logic_vector(0 downto 0);
+      probe3 : in std_logic_vector(0 downto 0)
     );
   end component;
 
@@ -155,7 +157,9 @@ begin
     trig_in => trigger_s(0),
     trig_in_ack => open,
     probe0 => encdata_s,
-    probe1 => outdata_s
+    probe1 => outdata_s,
+    probe2 => encvalid_s,
+    probe3 => decvalid_s
   );
 
   -- Clocking Wizard
