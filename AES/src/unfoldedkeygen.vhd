@@ -49,9 +49,10 @@ entity unfoldedkeygen is
     clk_i : in std_logic;
     arst_i : in std_logic;
     ready_i : in std_logic;
+    valid_i : in std_logic;
     ena_i : in std_logic;
     stage_i : in std_logic_vector(3 downto 0);
-    keys_ready_i : out std_logic;
+    keys_ready_o : out std_logic;
     key_o : out std_logic_vector(N - 1 downto 0)
   );
 end unfoldedkeygen;
@@ -103,25 +104,25 @@ begin
   begin
     if arst_i = '1' then
       counter := I + 4;
-      keys_ready_i <= '0';
+      keys_ready_o <= '0';
     elsif rising_edge(clk_i) then
       -- Detector de nuevo ready
       if ready_i = '1' then
         if counter = I + 4 then
           counter := 0;
-          keys_ready_i <= '0';
-          -- Key Expansion
-          registeredkeys_s (N - 1 downto 0) <= key_i;
+          registeredkeys_s (N - 1 downto 0) <= key_i; -- Key Expansion inicial register
         elsif counter <= I + 1 then
           counter := counter + 1;
-          keys_ready_i <= '0';
         elsif counter = I + 2 then
           counter := counter + 1;
-          keys_ready_i <= '1';
-        else
-          counter := counter + 1;
-          keys_ready_i <= '0';
+          keys_ready_o <= '1';
+        elsif valid_i = '1' then
+          counter := I + 4;
+          keys_ready_o <= '0';
         end if;
+      else
+        counter := I + 4;
+        keys_ready_o <= '0';
       end if;
     end if;
   end process;

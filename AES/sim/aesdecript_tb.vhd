@@ -105,6 +105,14 @@ begin
       ready_i <= '1';
     end loop; -- test_vectors
 
+    test_vectors_continuos : for j in 0 to M-1 loop
+      wait until valid_o = '1';
+      i <= j;
+      data_i <= test_inputs(j);
+      key_i <= test_keys(j);
+      wait for clk_period;
+    end loop; -- test_vectors_continuos
+
     wait until valid_o = '1';
     wait for clk_period * 10;
     --ready_i <= '0';

@@ -58,6 +58,7 @@ architecture struc of aesdecript is
   signal last_s : std_logic;
   signal prelast_s : std_logic;
   signal keys_ready_s : std_logic;
+  signal valid_s : std_logic;
 
   signal generatedkeys_s : std_logic_vector(N - 1 downto 0);
   signal keystage_s : std_logic_vector(3 downto 0);
@@ -133,9 +134,10 @@ begin
       arst_i => arst_i,
       ena_i => '1',
       ready_i => ready_i,
+      valid_i => valid_s,
       key_i => key_i,
       stage_i => keystage_s,
-      keys_ready_i => keys_ready_s,
+      keys_ready_o => keys_ready_s,
       key_o => generatedkeys_s
     );
 
@@ -150,8 +152,10 @@ begin
     first_o => first_s,
     prelast_o => prelast_s,
     last_o => last_s,
-    valid_o => valid_o,
+    valid_o => valid_s,
     index_o => keystage_s
   );
+
+  valid_o <= valid_s;
 
 end architecture;
