@@ -18,11 +18,11 @@ int main (void)
 
     xil_printf("-- Start of the Program --\r\n");
 
-    XGpio_Initialize(&dip, XPAR_AXI_GPIO_0_BASEADDR);
+    XGpio_Initialize(&dip, XPAR_GPIO_0_DEVICE_ID);
 	XGpio_SetDataDirection(&dip, SW_CHANNEL, 0xffffffff);
 	XGpio_SetDataDirection(&dip, BTN_CHANNEL, 0xffffffff);
 
-	cfg_ptr = XGpio_LookupConfig(XPAR_AXI_GPIO_1_BASEADDR);
+	cfg_ptr = XGpio_LookupConfig(XPAR_GPIO_1_DEVICE_ID);
 	XGpio_CfgInitialize(&led, cfg_ptr, cfg_ptr->BaseAddress);
 	XGpio_SetDataDirection(&led, LED_CHANNEL, 0);
 
@@ -45,3 +45,4 @@ int main (void)
 	}
 
 }
+
