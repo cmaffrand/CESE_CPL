@@ -1,0 +1,176 @@
+-- Start of the Program --
+
+-- Start Encoder Selftest --
+
+******************************
+
+* User Peripheral Self Test
+
+******************************
+
+
+User logic slave module test...
+
+   - slave register write/read passed
+
+
+-- Encoder Selftest Finished --
+
+-- Start Decoder Selftest --
+
+******************************
+
+* User Peripheral Self Test
+
+******************************
+
+
+User logic slave module test...
+
+   - slave register write/read passed
+
+
+-- Finish Decoder Selftest --
+-- Encoder/Decoder Test Start --
+
+-- Encoder Configured --
+
+-- Key = 00000000000000000000000000000000 --
+
+-- Input = 6A84867CD77E12AD07EA1BE895C53FA3 --
+
+-- Encoded = 732281C0A0AAB8F7A54A0C67A0C45ECF --
+
+-- Encoder Test 0 Passed --
+
+-- Decoder Configured --
+
+-- Key = 00000000000000000000000000000000 --
+-- Input = 732281C0A0AAB8F7A54A0C67A0C45ECF --
+
+-- Decoded = 6A84867CD77E12AD07EA1BE895C53FA3 --
+
+-- Decoder Test 0 Passed --
+
+-- Encoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = 6BC1BEE22E409F96E93D7E117393172A --
+
+-- Encoded = 3AD77BB40D7A3660A89ECAF32466EF97 --
+
+-- Encoder Test 1 Passed --
+
+-- Decoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = 3AD77BB40D7A3660A89ECAF32466EF97 --
+
+-- Decoded = 6BC1BEE22E409F96E93D7E117393172A --
+
+-- Decoder Test 1 Passed --
+
+-- Encoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = AE2D8A571E03AC9C9EB76FAC45AF8E51 --
+
+-- Encoded = F5D3D58503B9699DE785895A96FDBAAF --
+
+-- Encoder Test 2 Passed --
+
+-- Decoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = F5D3D58503B9699DE785895A96FDBAAF --
+
+-- Decoded = AE2D8A571E03AC9C9EB76FAC45AF8E51 --
+
+-- Decoder Test 2 Passed --
+
+-- Encoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = 30C81C46A35CE411E5FBC1191A0A52EF --
+
+-- Encoded = 43B1CD7F598ECE23881B00E3ED030688 --
+
+-- Encoder Test 3 Passed --
+
+-- Decoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = 43B1CD7F598ECE23881B00E3ED030688 --
+
+-- Decoded = 30C81C46A35CE411E5FBC1191A0A52EF --
+
+-- Decoder Test 3 Passed --
+
+-- Encoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = F69F2445DF4F9B17AD2B417BE66C3710 --
+
+-- Encoded = 7B0C785E27E8AD3F8223207104725DD4 --
+
+-- Encoder Test 4 Passed --
+
+-- Decoder Configured --
+
+-- Key = 2B7E151628AED2A6ABF7158809CF4F3C --
+
+-- Input = 7B0C785E27E8AD3F8223207104725DD4 --
+
+-- Decoded = F69F2445DF4F9B17AD2B417BE66C3710 --
+
+-- Decoder Test 4 Passed --
+
+-- Encoder Configured --
+
+-- Key = 000102030405060708090A0B0C0D0E0F --
+
+-- Input = 00112233445566778899AABBCCDDEEFF --
+
+-- Encoded = 69C4E0D86A7B0430D8CDB78070B4C55A --
+
+-- Encoder Test 5 Passed --
+
+-- Decoder Configured --
+
+-- Key = 000102030405060708090A0B0C0D0E0F --
+
+-- Input = 69C4E0D86A7B0430D8CDB78070B4C55A --
+
+-- Decoded = 00112233445566778899AABBCCDDEEFF --
+
+-- Decoder Test 5 Passed --
+
+-- Encoder Configured --
+
+-- Key = FEBD9A24D8B65C1C787D50A4ED3619A9 --
+
+-- Input = 00000000000000000000000000000000 --
+
+-- Encoded = F4A70D8AF877F9B02B4C40DF57D45B17 --
+
+-- Encoder Test 6 Passed --
+
+-- Decoder Configured --
+
+-- Key = FEBD9A24D8B65C1C787D50A4ED3619A9 --
+
+-- Input = F4A70D8AF877F9B02B4C40DF57D45B17 --
+
+-- Decoded = 00000000000000000000000000000000 --
+
+-- Decoder Test 6 Passed --
+
+-- Encoder/Decoder Test Ended Succesfully --
+
