@@ -8,68 +8,68 @@
 --Purpose     : IP block netlist
 ----------------------------------------------------------------------------------
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_1164.all;
 library UNISIM;
-use UNISIM.VCOMPONENTS.ALL;
+use UNISIM.VCOMPONENTS.all;
 entity aes_enc_dec_test_wrapper is
   port (
-    DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
-    DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR_cas_n : inout STD_LOGIC;
-    DDR_ck_n : inout STD_LOGIC;
-    DDR_ck_p : inout STD_LOGIC;
-    DDR_cke : inout STD_LOGIC;
-    DDR_cs_n : inout STD_LOGIC;
-    DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
-    DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_odt : inout STD_LOGIC;
-    DDR_ras_n : inout STD_LOGIC;
-    DDR_reset_n : inout STD_LOGIC;
-    DDR_we_n : inout STD_LOGIC;
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    reset_rtl : in STD_LOGIC;
-    sys_clock : in STD_LOGIC
+    DDR_addr : inout std_logic_vector (14 downto 0);
+    DDR_ba : inout std_logic_vector (2 downto 0);
+    DDR_cas_n : inout std_logic;
+    DDR_ck_n : inout std_logic;
+    DDR_ck_p : inout std_logic;
+    DDR_cke : inout std_logic;
+    DDR_cs_n : inout std_logic;
+    DDR_dm : inout std_logic_vector (3 downto 0);
+    DDR_dq : inout std_logic_vector (31 downto 0);
+    DDR_dqs_n : inout std_logic_vector (3 downto 0);
+    DDR_dqs_p : inout std_logic_vector (3 downto 0);
+    DDR_odt : inout std_logic;
+    DDR_ras_n : inout std_logic;
+    DDR_reset_n : inout std_logic;
+    DDR_we_n : inout std_logic;
+    FIXED_IO_ddr_vrn : inout std_logic;
+    FIXED_IO_ddr_vrp : inout std_logic;
+    FIXED_IO_mio : inout std_logic_vector (53 downto 0);
+    FIXED_IO_ps_clk : inout std_logic;
+    FIXED_IO_ps_porb : inout std_logic;
+    FIXED_IO_ps_srstb : inout std_logic;
+    reset_rtl : in std_logic;
+    sys_clock : in std_logic
   );
 end aes_enc_dec_test_wrapper;
 
 architecture STRUCTURE of aes_enc_dec_test_wrapper is
   component aes_enc_dec_test is
-  port (
-    DDR_cas_n : inout STD_LOGIC;
-    DDR_cke : inout STD_LOGIC;
-    DDR_ck_n : inout STD_LOGIC;
-    DDR_ck_p : inout STD_LOGIC;
-    DDR_cs_n : inout STD_LOGIC;
-    DDR_reset_n : inout STD_LOGIC;
-    DDR_odt : inout STD_LOGIC;
-    DDR_ras_n : inout STD_LOGIC;
-    DDR_we_n : inout STD_LOGIC;
-    DDR_ba : inout STD_LOGIC_VECTOR ( 2 downto 0 );
-    DDR_addr : inout STD_LOGIC_VECTOR ( 14 downto 0 );
-    DDR_dm : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dq : inout STD_LOGIC_VECTOR ( 31 downto 0 );
-    DDR_dqs_n : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    DDR_dqs_p : inout STD_LOGIC_VECTOR ( 3 downto 0 );
-    FIXED_IO_mio : inout STD_LOGIC_VECTOR ( 53 downto 0 );
-    FIXED_IO_ddr_vrn : inout STD_LOGIC;
-    FIXED_IO_ddr_vrp : inout STD_LOGIC;
-    FIXED_IO_ps_srstb : inout STD_LOGIC;
-    FIXED_IO_ps_clk : inout STD_LOGIC;
-    FIXED_IO_ps_porb : inout STD_LOGIC;
-    sys_clock : in STD_LOGIC;
-    reset_rtl : in STD_LOGIC
-  );
+    port (
+      DDR_cas_n : inout std_logic;
+      DDR_cke : inout std_logic;
+      DDR_ck_n : inout std_logic;
+      DDR_ck_p : inout std_logic;
+      DDR_cs_n : inout std_logic;
+      DDR_reset_n : inout std_logic;
+      DDR_odt : inout std_logic;
+      DDR_ras_n : inout std_logic;
+      DDR_we_n : inout std_logic;
+      DDR_ba : inout std_logic_vector (2 downto 0);
+      DDR_addr : inout std_logic_vector (14 downto 0);
+      DDR_dm : inout std_logic_vector (3 downto 0);
+      DDR_dq : inout std_logic_vector (31 downto 0);
+      DDR_dqs_n : inout std_logic_vector (3 downto 0);
+      DDR_dqs_p : inout std_logic_vector (3 downto 0);
+      FIXED_IO_mio : inout std_logic_vector (53 downto 0);
+      FIXED_IO_ddr_vrn : inout std_logic;
+      FIXED_IO_ddr_vrp : inout std_logic;
+      FIXED_IO_ps_srstb : inout std_logic;
+      FIXED_IO_ps_clk : inout std_logic;
+      FIXED_IO_ps_porb : inout std_logic;
+      sys_clock : in std_logic;
+      reset_rtl : in std_logic
+    );
   end component aes_enc_dec_test;
 begin
-aes_enc_dec_test_i: component aes_enc_dec_test
-     port map (
+  aes_enc_dec_test_i : component aes_enc_dec_test
+    port map(
       DDR_addr(14 downto 0) => DDR_addr(14 downto 0),
       DDR_ba(2 downto 0) => DDR_ba(2 downto 0),
       DDR_cas_n => DDR_cas_n,
@@ -94,4 +94,4 @@ aes_enc_dec_test_i: component aes_enc_dec_test
       reset_rtl => reset_rtl,
       sys_clock => sys_clock
     );
-end STRUCTURE;
+  end STRUCTURE;

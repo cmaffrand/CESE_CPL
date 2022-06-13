@@ -18,8 +18,7 @@ int main(void)
   u32 encoded_127_96, encoded_95_64, encoded_63_32, encoded_31_0;
   u32 decoded_127_96, decoded_95_64, decoded_63_32, decoded_31_0;
   int i = 0;
-  u32 TEST_DATA[] = {INPUT_DATA_0_127_96, INPUT_DATA_0_95_64, INPUT_DATA_0_63_32, INPUT_DATA_0_31_0,INPUT_KEY_0_127_96, INPUT_KEY_0_95_64, INPUT_KEY_0_63_32, INPUT_KEY_0_31_0,OUTPUT_DATA_0_127_96, OUTPUT_DATA_0_95_64, OUTPUT_DATA_0_63_32, OUTPUT_DATA_0_31_0,INPUT_DATA_1_127_96, INPUT_DATA_1_95_64, INPUT_DATA_1_63_32, INPUT_DATA_1_31_0,INPUT_KEY_1_127_96, INPUT_KEY_1_95_64, INPUT_KEY_1_63_32, INPUT_KEY_1_31_0,OUTPUT_DATA_1_127_96, OUTPUT_DATA_1_95_64, OUTPUT_DATA_1_63_32, OUTPUT_DATA_1_31_0,INPUT_DATA_2_127_96, INPUT_DATA_2_95_64, INPUT_DATA_2_63_32, INPUT_DATA_2_31_0,INPUT_KEY_2_127_96, INPUT_KEY_2_95_64, INPUT_KEY_2_63_32, INPUT_KEY_2_31_0,OUTPUT_DATA_2_127_96, OUTPUT_DATA_2_95_64, OUTPUT_DATA_2_63_32, OUTPUT_DATA_2_31_0,INPUT_DATA_3_127_96, INPUT_DATA_3_95_64, INPUT_DATA_3_63_32, INPUT_DATA_3_31_0,INPUT_KEY_3_127_96, INPUT_KEY_3_95_64, INPUT_KEY_3_63_32, INPUT_KEY_3_31_0,OUTPUT_DATA_3_127_96, OUTPUT_DATA_3_95_64, OUTPUT_DATA_3_63_32, OUTPUT_DATA_3_31_0,INPUT_DATA_4_127_96, INPUT_DATA_4_95_64, INPUT_DATA_4_63_32, INPUT_DATA_4_31_0,INPUT_KEY_4_127_96, INPUT_KEY_4_95_64, INPUT_KEY_4_63_32, INPUT_KEY_4_31_0,OUTPUT_DATA_4_127_96, OUTPUT_DATA_4_95_64, OUTPUT_DATA_4_63_32, OUTPUT_DATA_4_31_0,INPUT_DATA_5_127_96, INPUT_DATA_5_95_64, INPUT_DATA_5_63_32, INPUT_DATA_5_31_0,INPUT_KEY_5_127_96, INPUT_KEY_5_95_64, INPUT_KEY_5_63_32, INPUT_KEY_5_31_0,OUTPUT_DATA_5_127_96, OUTPUT_DATA_5_95_64, OUTPUT_DATA_5_63_32, OUTPUT_DATA_5_31_0,INPUT_DATA_6_127_96, INPUT_DATA_6_95_64, INPUT_DATA_6_63_32, INPUT_DATA_6_31_0,INPUT_KEY_6_127_96, INPUT_KEY_6_95_64, INPUT_KEY_6_63_32, INPUT_KEY_6_31_0,OUTPUT_DATA_6_127_96, OUTPUT_DATA_6_95_64, OUTPUT_DATA_6_63_32, OUTPUT_DATA_6_31_0};
-
+  u32 TEST_DATA[] = {INPUT_DATA_0_127_96, INPUT_DATA_0_95_64, INPUT_DATA_0_63_32, INPUT_DATA_0_31_0, INPUT_KEY_0_127_96, INPUT_KEY_0_95_64, INPUT_KEY_0_63_32, INPUT_KEY_0_31_0, OUTPUT_DATA_0_127_96, OUTPUT_DATA_0_95_64, OUTPUT_DATA_0_63_32, OUTPUT_DATA_0_31_0, INPUT_DATA_1_127_96, INPUT_DATA_1_95_64, INPUT_DATA_1_63_32, INPUT_DATA_1_31_0, INPUT_KEY_1_127_96, INPUT_KEY_1_95_64, INPUT_KEY_1_63_32, INPUT_KEY_1_31_0, OUTPUT_DATA_1_127_96, OUTPUT_DATA_1_95_64, OUTPUT_DATA_1_63_32, OUTPUT_DATA_1_31_0, INPUT_DATA_2_127_96, INPUT_DATA_2_95_64, INPUT_DATA_2_63_32, INPUT_DATA_2_31_0, INPUT_KEY_2_127_96, INPUT_KEY_2_95_64, INPUT_KEY_2_63_32, INPUT_KEY_2_31_0, OUTPUT_DATA_2_127_96, OUTPUT_DATA_2_95_64, OUTPUT_DATA_2_63_32, OUTPUT_DATA_2_31_0, INPUT_DATA_3_127_96, INPUT_DATA_3_95_64, INPUT_DATA_3_63_32, INPUT_DATA_3_31_0, INPUT_KEY_3_127_96, INPUT_KEY_3_95_64, INPUT_KEY_3_63_32, INPUT_KEY_3_31_0, OUTPUT_DATA_3_127_96, OUTPUT_DATA_3_95_64, OUTPUT_DATA_3_63_32, OUTPUT_DATA_3_31_0, INPUT_DATA_4_127_96, INPUT_DATA_4_95_64, INPUT_DATA_4_63_32, INPUT_DATA_4_31_0, INPUT_KEY_4_127_96, INPUT_KEY_4_95_64, INPUT_KEY_4_63_32, INPUT_KEY_4_31_0, OUTPUT_DATA_4_127_96, OUTPUT_DATA_4_95_64, OUTPUT_DATA_4_63_32, OUTPUT_DATA_4_31_0, INPUT_DATA_5_127_96, INPUT_DATA_5_95_64, INPUT_DATA_5_63_32, INPUT_DATA_5_31_0, INPUT_KEY_5_127_96, INPUT_KEY_5_95_64, INPUT_KEY_5_63_32, INPUT_KEY_5_31_0, OUTPUT_DATA_5_127_96, OUTPUT_DATA_5_95_64, OUTPUT_DATA_5_63_32, OUTPUT_DATA_5_31_0, INPUT_DATA_6_127_96, INPUT_DATA_6_95_64, INPUT_DATA_6_63_32, INPUT_DATA_6_31_0, INPUT_KEY_6_127_96, INPUT_KEY_6_95_64, INPUT_KEY_6_63_32, INPUT_KEY_6_31_0, OUTPUT_DATA_6_127_96, OUTPUT_DATA_6_95_64, OUTPUT_DATA_6_63_32, OUTPUT_DATA_6_31_0};
 
   xil_printf("-- Start of the Program --\r\n");
 
@@ -32,7 +31,7 @@ int main(void)
   xil_printf("-- Finish Decoder Selftest --\r\n");
 
   while (1)
-  { 
+  {
     if (i == 0)
     {
       xil_printf("-- Encoder/Decoder Test Start --\r\n");
@@ -42,14 +41,14 @@ int main(void)
       xil_printf("-- Encoder/Decoder Test Ended Succesfully --\r\n");
       return 0;
     }
-    encoder_input_127_96  = TEST_DATA[i*12+0];
-    encoder_input_95_64   = TEST_DATA[i*12+1];
-    encoder_input_63_32   = TEST_DATA[i*12+2];
-    encoder_input_31_0    = TEST_DATA[i*12+3];
-    key_127_96            = TEST_DATA[i*12+4];
-    key_95_64             = TEST_DATA[i*12+5];
-    key_63_32             = TEST_DATA[i*12+6];
-    key_31_0              = TEST_DATA[i*12+7];
+    encoder_input_127_96 = TEST_DATA[i * 12 + 0];
+    encoder_input_95_64 = TEST_DATA[i * 12 + 1];
+    encoder_input_63_32 = TEST_DATA[i * 12 + 2];
+    encoder_input_31_0 = TEST_DATA[i * 12 + 3];
+    key_127_96 = TEST_DATA[i * 12 + 4];
+    key_95_64 = TEST_DATA[i * 12 + 5];
+    key_63_32 = TEST_DATA[i * 12 + 6];
+    key_31_0 = TEST_DATA[i * 12 + 7];
 
     AXI_AES_ENCODER_mWriteReg(ENCODER_BASE, ENCODER_READY_REG, 0);
     AXI_AES_ENCODER_mWriteReg(ENCODER_BASE, ENCODER_KEY_127_96_REG, key_127_96);
@@ -74,13 +73,13 @@ int main(void)
 
     xil_printf("-- Encoded = %08X%08X%08X%08X --\r\n", encoded_127_96, encoded_95_64, encoded_63_32, encoded_31_0);
 
-    if (encoded_127_96 != TEST_DATA[i*12+8] || encoded_95_64 != TEST_DATA[i*12+9] || encoded_63_32 != TEST_DATA[i*12+10] || encoded_31_0 != TEST_DATA[i*12+11])
+    if (encoded_127_96 != TEST_DATA[i * 12 + 8] || encoded_95_64 != TEST_DATA[i * 12 + 9] || encoded_63_32 != TEST_DATA[i * 12 + 10] || encoded_31_0 != TEST_DATA[i * 12 + 11])
     {
-      xil_printf("-- Encoder Test %d Failed --\r\n",i);
+      xil_printf("-- Encoder Test %d Failed --\r\n", i);
       return -1;
     }
     else
-      xil_printf("-- Encoder Test %d Passed --\r\n",i);
+      xil_printf("-- Encoder Test %d Passed --\r\n", i);
 
     AXI_AES_DECODER_mWriteReg(DECODER_BASE, DECODER_READY_REG, 0);
     AXI_AES_DECODER_mWriteReg(DECODER_BASE, DECODER_KEY_127_96_REG, key_127_96);
@@ -105,13 +104,13 @@ int main(void)
 
     xil_printf("-- Decoded = %08X%08X%08X%08X --\r\n", decoded_127_96, decoded_95_64, decoded_63_32, decoded_31_0);
 
-    if (decoded_127_96 != TEST_DATA[i*12] || decoded_95_64 != TEST_DATA[i*12+1] || decoded_63_32 != TEST_DATA[i*12+2] || decoded_31_0 != TEST_DATA[i*12+3])
+    if (decoded_127_96 != TEST_DATA[i * 12] || decoded_95_64 != TEST_DATA[i * 12 + 1] || decoded_63_32 != TEST_DATA[i * 12 + 2] || decoded_31_0 != TEST_DATA[i * 12 + 3])
     {
-      xil_printf("-- Decoder Test %d Failed --\r\n",i);
+      xil_printf("-- Decoder Test %d Failed --\r\n", i);
       return -1;
     }
     else
-      xil_printf("-- Decoder Test %d Passed --\r\n",i);
+      xil_printf("-- Decoder Test %d Passed --\r\n", i);
 
     i++;
   }
